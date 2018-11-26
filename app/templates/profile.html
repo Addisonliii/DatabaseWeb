@@ -4,9 +4,10 @@
 <meta name = "viewport" content = "width=device-width, initial-scale=1">
 <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
-<link rel="stylesheet" href="/static/profile.css" type = "text/css">
+<link rel="stylesheet" href="/static/profile.css?v=<?php echo time(); ?>" type = "text/css", charset="utf-8">
 
 </head>
+
 <body>
     <body>
     <div class = "profile">
@@ -28,12 +29,12 @@
 
 
     <div class="container">
-    {% for payment in payments %} 
+    {% for order in orders %} 
+        <a href = {{ url_for('product', pid = order['pid'], username = user.username) }}>
             <div class = "order">
-                <li>Name: {{ payment['name'] }}</li>
-                <li>Phone Number: {{ payment['phone_number'] }}</li>
-                <li>Account Number: {{ payment['account_number'] }}</li>
-                <li>Bank: {{ payment['bank'] }}</li>
+                <li>{{ order['oid'] }}</li>
+                <li>{{ order['name'] }}</li>
+                <li>{{ order['price'] }}</li>
             </div>
         </a>
             <div class = rating>

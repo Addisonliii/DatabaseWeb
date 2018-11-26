@@ -9,7 +9,7 @@
           <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
           <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
 
-              <link rel="stylesheet" href="/static/style.css" type = "text/css">
+              <link rel="stylesheet" href="/static/profile.css?v=<?php echo time(); ?" type = "text/css", charset="UTF-8">
             <style type="text/css">
 
     textarea {
@@ -21,19 +21,22 @@
     height: 21em;
     }
     input, select, textarea {
-    color: #151515;
+    color: black;
     }
     #example {
-    color: #0000ff;
+    color: black;
     }
 
     </style>
     	</head>
+        <div class = "profile">
+        <div class = users>Your Payment Methods</div>
+    </div>
 
     <div class="container">
     {% for payment in payments %}
             <div class = "order">
-                <li>Name: {{ payment['phone'] }}</li>
+                <li>Name: {{ payment['name'] }}</li>
                 <li>Phone Number: {{ payment['phone_number'] }}</li>
                 <li>Bank: {{ payment['bank'] }}</li>
                 <li>Account Number: {{ payment['account_number'] }}</li>
@@ -65,7 +68,7 @@
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
-                <p>
+                <p> 
                     {{ form.account.label }}<br>
                     {{ form.account(size=32) }}<br>
                     {% for error in form.account.errors %}
@@ -86,9 +89,7 @@
     </div>
         <div>
         {#to home page module#}
-        {% if user%}
-            <a href="{{ url_for('profile', username = user.username) }}" class = "btn btn-primary btn-sm">Back</a>
-        {% endif %}
+         <a href="{{ url_for('profile', username = username) }}" class = "btn btn-primary btn-sm">Back</a>
 		{#to home page module#}
     </div>
 

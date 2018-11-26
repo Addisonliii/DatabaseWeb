@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Shopping Cart Course Discoveryvip.com</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style.css" type = "text/css">
+    <link rel="stylesheet" href="/static/style.css?v=<?php echo time(); ?>" type = "text/css", charset="utf-8">
     <style>
         #output {
             clear: both;
@@ -20,6 +20,13 @@
         .footer {
             background-color: darkgrey;
             color: white;
+        }
+        .card{
+            height: 350px;
+            background: white;
+            border-style: ridge;
+            border-width: 5px;
+            border-color: #85B3D1;
         }
         .card-text,.card-title, .card-block, .card-subtitle .text-muted,.modal-body{
             color: black;
@@ -50,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="hbot">
+       <!--  <div class="hbot">
             <div class="container">
                 <nav class="navbar navbar-full navbar-dark bg-inverse">
                     <button class="navbar-toggler light float-xs-right hidden-sm-up" type="button" data-toggle="collapse" data-target="#nvbar"></button>
@@ -63,6 +70,12 @@
                     </div>
                 </nav>
             </div>
+        </div> -->
+        <div>
+            <form method="POST">
+                <input type="text" name="search">
+                <input type="submit" name="submitsearch">
+            </form>
         </div>
     </header>
     <div class="content">
@@ -71,7 +84,7 @@
             {% for product in products %}
                 <a href = {{ url_for('product', pid = product['pid'], username = username) }}>
                 <div class="col-md-3">
-                    <div class="card">
+                    <div class="card" >
                         <div class="card-block">
                             <h3 class="card-title">{{ product['product_name'] }}</h3>
 {#                            <h3 class="brand-title">{{ product['brand_name'] }}</h3>#}

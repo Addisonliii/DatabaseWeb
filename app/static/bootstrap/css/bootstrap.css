@@ -1,4 +1,4 @@
-/*!
+    /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -898,6 +898,7 @@ pre code {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
+    color: #5a8d84;
   }
   .order-sm-first {
     -ms-flex-order: -1;
